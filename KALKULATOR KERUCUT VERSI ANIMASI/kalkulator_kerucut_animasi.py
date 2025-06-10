@@ -7,54 +7,56 @@ Original file is located at
     https://colab.research.google.com/drive/1rUCN7pUamYdqMFtYxawYUJRIcxrpPwu-
 """
 
-import streamlit as st
-import math
-import requests
-from streamlit_lottie import st_lottie
-import time
+# Commented out IPython magic to ensure Python compatibility.
+# # Install dependencies
+# !pip install streamlit streamlit-lottie pyngrok
+# 
+# # Tulis file app.py Streamlit
+# %%writefile app.py
+# import streamlit as st
+# import math
+# import requests
+# from streamlit_lottie import st_lottie
+# import time
+# 
+# st.set_page_config(page_title="Kalkulator Kerucut Animasi", page_icon="🧮", layout="centered")
+# 
+# def load_lottie_url(url: str):
+#     r = requests.get(url)
+#     if r.status_code != 200:
+#         return None
+#     return r.json()
+# 
+# lottie_cone = load_lottie_url("https://assets5.lottiefiles.com/packages/lf20_8xq5lv6u.json")
+# lottie_calculate = load_lottie_url("https://assets2.lottiefiles.com/packages/lf20_jbrw3hcz.json")
+# 
+# st.title("🧮 Kalkulator Luas & Volume Kerucut dengan Animasi")
+# 
+# st_lottie(lottie_cone, speed=1, height=200, key="cone")
+# 
+# st.markdown("Masukkan data kerucut:")
+# 
+# r = st.number_input("Jari-jari alas (r) cm", min_value=0.0, format="%.2f")
+# s = st.number_input("Garis pelukis (s) cm", min_value=0.0, format="%.2f")
+# t = st.number_input("Tinggi kerucut (t) cm", min_value=0.0, format="%.2f")
+# 
+# if st.button("Hitung Luas & Volume Kerucut"):
+#     if r > 0 and s > 0 and t > 0:
+#         with st.spinner("Menghitung..."):
+#             for i in range(101):
+#                 time.sleep(0.02)
+#                 st.progress(i)
+# 
+#         luas = math.pi * r * (r + s)
+#         volume = (1/3) * math.pi * r**2 * t
+# 
+#         st_lottie(lottie_calculate, speed=1, height=150, key="calc")
+# 
+#         st.success(f"📏 Luas Permukaan Kerucut: **{luas:.2f} cm²**")
+#         st.success(f"📦 Volume Kerucut: **{volume:.2f} cm³**")
+#     else:
+#         st.error("⚠️ Masukkan semua nilai > 0!")
+# 
+# st.balloons()
+#
 
-st.set_page_config(page_title="Kalkulator Kerucut Animasi", page_icon="🧮", layout="centered")
-
-# Fungsi ambil animasi Lottie dari URL
-def load_lottie_url(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-# Animasi Lottie kerucut
-lottie_cone = load_lottie_url("https://assets5.lottiefiles.com/packages/lf20_8xq5lv6u.json")  # animasi kerucut
-lottie_calculate = load_lottie_url("https://assets2.lottiefiles.com/packages/lf20_jbrw3hcz.json")  # animasi kalkulasi
-
-st.title("🧮 Kalkulator Luas & Volume Kerucut dengan Animasi")
-
-# Tampilkan animasi kerucut
-st_lottie(lottie_cone, speed=1, height=200, key="cone")
-
-st.markdown("Masukkan data kerucut:")
-
-# Input
-r = st.number_input("Jari-jari alas (r) cm", min_value=0.0, format="%.2f")
-s = st.number_input("Garis pelukis (s) cm", min_value=0.0, format="%.2f")
-t = st.number_input("Tinggi kerucut (t) cm", min_value=0.0, format="%.2f")
-
-if st.button("Hitung Luas & Volume Kerucut"):
-    if r > 0 and s > 0 and t > 0:
-        with st.spinner("Menghitung..."):
-            # Progress animasi selama 2 detik
-            for i in range(101):
-                time.sleep(0.02)
-                st.progress(i)
-
-        luas = math.pi * r * (r + s)
-        volume = (1/3) * math.pi * r**2 * t
-
-        # Tampilkan animasi kalkulasi
-        st_lottie(lottie_calculate, speed=1, height=150, key="calc")
-
-        st.success(f"📏 Luas Permukaan Kerucut: **{luas:.2f} cm²**")
-        st.success(f"📦 Volume Kerucut: **{volume:.2f} cm³**")
-    else:
-        st.error("⚠️ Masukkan semua nilai > 0!")
-
-st.balloons()  # efek balon seru di bawah, bisa kamu taruh di bagian yang cocok
