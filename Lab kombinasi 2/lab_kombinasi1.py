@@ -16,22 +16,6 @@ def hitung_kombinasi(n, r):
 
 hasil_kombinasi = hitung_kombinasi(n, r)
 
-st.markdown(f"""
-### 📘 Rumus Kombinasi  
-\[
-C(n, r) = \\frac{{n!}}{{r!(n-r)!}} = C({n}, {r}) = {hasil_kombinasi}
-\]
-""")
-
-st.divider()
-
-# 🔢 Daftar buah sesuai dengan jumlah n
-buah_semua = ["🍎 Apel", "🍌 Pisang", "🍊 Jeruk", "🥭 Mangga", "🍉 Semangka", "🍇 Anggur",
-              "🍍 Nanas", "🍓 Stroberi", "🥝 Kiwi", "🍑 Persik", "🍒 Ceri", "🍏 Apel Hijau",
-              "🍈 Melon", "🫐 Blueberry", "🥥 Kelapa", "🍋 Lemon", "🍐 Pir", "🍅 Tomat", "🍠 Ubi", "🍆 Terong"]
-
-buah_list = buah_semua[:int(n)]
-
 # Semua kombinasi seharusnya
 kombinasi_teori = list(itertools.combinations(sorted(buah_list), r))
 
