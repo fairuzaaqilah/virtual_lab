@@ -5,18 +5,32 @@ import itertools
 st.set_page_config(layout="wide")
 st.title("🍹 Laboratorium Kombinasi Buah")
 
-# Nilai tetap untuk kombinasi
-n = 6
-r = 2
-
-# Daftar buah tetap
-buah_list = ["🍎 Apel", "🍌 Pisang", "🍊 Jeruk", "🥭 Mangga", "🍉 Semangka", "🍇 Anggur"]
+# 📌 Input nilai n dan r
+st.markdown("### 🔢 Masukkan nilai untuk kombinasi")
+n = st.number_input("Jumlah buah tersedia (n)", min_value=2, max_value=20, value=6)
+r = st.number_input("Jumlah buah yang dipilih (r)", min_value=1, max_value=int(n), value=2)
 
 # Hitung kombinasi teori
 def hitung_kombinasi(n, r):
     return math.comb(n, r)
 
 hasil_kombinasi = hitung_kombinasi(n, r)
+
+st.markdown(f"""
+### 📘 Rumus Kombinasi  
+\[
+C(n, r) = \\frac{{n!}}{{r!(n-r)!}} = C({n}, {r}) = {hasil_kombinasi}
+\]
+""")
+
+st.divider()
+
+# 🔢 Daftar buah sesuai dengan jumlah n
+buah_semua = ["🍎 Apel", "🍌 Pisang", "🍊 Jeruk", "🥭 Mangga", "🍉 Semangka", "🍇 Anggur",
+              "🍍 Nanas", "🍓 Stroberi", "🥝 Kiwi", "🍑 Persik", "🍒 Ceri", "🍏 Apel Hijau",
+              "🍈 Melon", "🫐 Blueberry", "🥥 Kelapa", "🍋 Lemon", "🍐 Pir", "🍅 Tomat", "🍠 Ubi", "🍆 Terong"]
+
+buah_list = buah_semua[:int(n)]
 
 # Semua kombinasi seharusnya
 kombinasi_teori = list(itertools.combinations(sorted(buah_list), r))
@@ -25,7 +39,7 @@ kombinasi_teori = list(itertools.combinations(sorted(buah_list), r))
 if "kombinasi_buah" not in st.session_state:
     st.session_state.kombinasi_buah = []
 
-# Kolom interaktif
+# 🧃 Kolom interaktif
 col1, col2 = st.columns(2)
 
 with col1:
@@ -53,14 +67,16 @@ with col2:
         st.info(f"Total: {len(st.session_state.kombinasi_buah)} kombinasi")
         if len(st.session_state.kombinasi_buah) == hasil_kombinasi:
             st.balloons()
-            st.success("🎉 Kamu berhasil menemukan semua kombinasi!")
+            st.success("Kamu berhasil menemukan semua kombinasi!")
     else:
         st.info("Belum ada kombinasi ditambahkan.")
 
-# Tampilkan kombinasi teori
+# 📊 Tampilkan kombinasi teori
 st.divider()
 st.markdown("### 📋 Semua Kombinasi yang Mungkin:")
 with st.expander("Klik untuk melihat semua kombinasi"):
-    for idx, k in enumerate(kombinasi_teori, start=1):
+    count = 1
+    for k in kombinasi_teori:
         cek = "✅" if k in st.session_state.kombinasi_buah else "⬜"
-        st.write(f"{cek} {idx}. {' + '.join(k)}")
+        st.write(f"{cek} {count}. {' + '.join(k)}")
+        count += 1 tolong hapus bagian Daftar buah sesuai dengan jumlah n dan rumus kombinasi
