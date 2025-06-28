@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Laboratorium Kombinasi Buah – Streamlit App
-
-Aplikasi ini memungkinkan siswa memilih 2 buah dari 6 buah tersedia.
-Tampil semua kombinasi yang bisa dibuat serta hasil teori, dengan
-penanda ✅ jika kombinasi sudah ditemukan siswa.
-"""
-
 import streamlit as st
 import math
 import itertools
@@ -14,11 +5,11 @@ import itertools
 st.set_page_config(layout="wide")
 st.title("🍹 Laboratorium Kombinasi Buah")
 
-# Fixed nilai n dan r
+# Nilai tetap untuk kombinasi
 n = 6
 r = 2
 
-# Fixed list buah
+# Daftar buah tetap
 buah_list = ["🍎 Apel", "🍌 Pisang", "🍊 Jeruk", "🥭 Mangga", "🍉 Semangka", "🍇 Anggur"]
 
 # Hitung kombinasi teori
