@@ -5,10 +5,12 @@ import itertools
 st.set_page_config(layout="wide")
 st.title("🍹 Laboratorium Kombinasi Buah")
 
-# 📌 Input nilai n dan r
-st.markdown("### 🔢 Masukkan nilai untuk kombinasi")
-n = st.number_input("Jumlah buah tersedia (n)", min_value=2, max_value=20, value=6)
-r = st.number_input("Jumlah buah yang dipilih (r)", min_value=1, max_value=int(n), value=2)
+# Fixed nilai n dan r
+n = 6
+r = 2
+
+# Fixed list buah
+buah_list = ["🍎 Apel", "🍌 Pisang", "🍊 Jeruk", "🥭 Mangga", "🍉 Semangka", "🍇 Anggur"]
 
 # Hitung kombinasi teori
 def hitung_kombinasi(n, r):
@@ -23,7 +25,7 @@ kombinasi_teori = list(itertools.combinations(sorted(buah_list), r))
 if "kombinasi_buah" not in st.session_state:
     st.session_state.kombinasi_buah = []
 
-# 🧃 Kolom interaktif
+# Kolom interaktif
 col1, col2 = st.columns(2)
 
 with col1:
@@ -55,7 +57,7 @@ with col2:
     else:
         st.info("Belum ada kombinasi ditambahkan.")
 
-# 📊 Tampilkan kombinasi teori
+# Tampilkan kombinasi teori
 st.divider()
 st.markdown("### 📋 Semua Kombinasi yang Mungkin:")
 with st.expander("Klik untuk melihat semua kombinasi"):
