@@ -42,4 +42,5 @@ else:
 # Input interaktif
 st.header("🔢 Coba Hitung Sendiri!")
 kaos = st.number_input("Jumlah kaos", min_value=0, value=4, step=1)
-celana = st.number_input("Jumlah celana", min_value=0, va
+celana = st.number_input("Jumlah celana", min_value=0, value=3, step=1)
+
