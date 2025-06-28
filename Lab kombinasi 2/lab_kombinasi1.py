@@ -1,3 +1,12 @@
+# -*- coding: utf-8 -*-
+"""
+Laboratorium Kombinasi Buah – Streamlit App
+
+Aplikasi ini memungkinkan siswa memilih 2 buah dari 6 buah tersedia.
+Tampil semua kombinasi yang bisa dibuat serta hasil teori, dengan
+penanda ✅ jika kombinasi sudah ditemukan siswa.
+"""
+
 import streamlit as st
 import math
 import itertools
@@ -53,7 +62,7 @@ with col2:
         st.info(f"Total: {len(st.session_state.kombinasi_buah)} kombinasi")
         if len(st.session_state.kombinasi_buah) == hasil_kombinasi:
             st.balloons()
-            st.success("Kamu berhasil menemukan semua kombinasi!")
+            st.success("🎉 Kamu berhasil menemukan semua kombinasi!")
     else:
         st.info("Belum ada kombinasi ditambahkan.")
 
@@ -61,8 +70,6 @@ with col2:
 st.divider()
 st.markdown("### 📋 Semua Kombinasi yang Mungkin:")
 with st.expander("Klik untuk melihat semua kombinasi"):
-    count = 1
-    for k in kombinasi_teori:
+    for idx, k in enumerate(kombinasi_teori, start=1):
         cek = "✅" if k in st.session_state.kombinasi_buah else "⬜"
-        st.write(f"{cek} {count}. {' + '.join(k)}")
-        count += 1
+        st.write(f"{cek} {idx}. {' + '.join(k)}")
