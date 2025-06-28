@@ -79,4 +79,4 @@ with st.expander("Klik untuk melihat semua kombinasi"):
     for k in kombinasi_teori:
         cek = "✅" if k in st.session_state.kombinasi_buah else "⬜"
         st.write(f"{cek} {count}. {' + '.join(k)}")
-        count += 1 tolong hapus bagian Daftar buah sesuai dengan jumlah n dan rumus kombinasi
+        count += 1 
