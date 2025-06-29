@@ -4,18 +4,40 @@ import math
 
 st.title("🧃 Laboratorium Virtual Kombinasi Buah")
 
-# Input buah
-buah_input = st.text_input(
-    "Masukkan daftar buah (pisahkan dengan koma):",
-    value="Apel, Jeruk, Mangga, Pisang, Stroberi"
+# Daftar buah yang tersedia (bisa kamu sesuaikan)
+daftar_buah_tersedia = [
+    "Apel", "Jeruk", "Mangga", "Pisang", "Stroberi",
+    "Semangka", "Nanas", "Anggur", "Kiwi", "Melon",
+    "Blueberry", "Ceri", "Alpukat"
+]
+
+# Slider untuk memilih jumlah buah yang ingin dipakai
+jumlah_buah = st.slider(
+    "Pilih jumlah jenis buah yang ingin digunakan:",
+    min_value=1,
+    max_value=len(daftar_buah_tersedia),
+    value=5
 )
 
-# Ubah jadi list & validasi
-buah_list = [b.strip() for b in buah_input.split(",") if b.strip()]
+# Dropdown dinamis sesuai jumlah_buah yang dipilih
+buah_list = []
+st.markdown("### Pilih buah:")
+for i in range(jumlah_buah):
+    buah = st.selectbox(f"Buah ke-{i+1}:", daftar_buah_tersedia, key=f"buah_{i}")
+    buah_list.append(buah)
+
+# Hapus duplikat agar kombinasi valid
+buah_list = list(dict.fromkeys(buah_list))
 n = len(buah_list)
 
 # Input r
-r = st.number_input("Jumlah buah yang ingin dicampur (r):", min_value=1, max_value=n, value=2, step=1)
+r = st.number_input(
+    "Jumlah buah yang ingin dicampur (r):",
+    min_value=1,
+    max_value=n if n > 0 else 1,
+    value=2,
+    step=1
+)
 
 # Validasi dan tampilkan kombinasi
 if n >= r and r > 0:
@@ -29,4 +51,3 @@ if n >= r and r > 0:
         st.write(f"{i}. {', '.join(combo)}")
 else:
     st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
-
