@@ -33,7 +33,7 @@ Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu🧃
 tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
 
 with tab1:
-    st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
+    st.subheader("📖 Panduan Laboratorium Kombinasi Buah")
 
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
