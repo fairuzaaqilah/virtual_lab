@@ -29,7 +29,7 @@ jumlah_buah = st.slider(
     value=5
 )
 
-st.markdown("### Masukkan nama buah unik:")
+st.markdown("### Masukkan nama buah :")
 
 buah_list = []
 nama_buah_valid = True
