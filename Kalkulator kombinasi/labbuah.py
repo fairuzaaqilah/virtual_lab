@@ -26,7 +26,7 @@ st.title("🍹 Laboratorium Kombinasi Buah")
 
 st.markdown("""
 Selamat datang di **laboratorium kombinasi buah**!  
-Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu. 🧃
+Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu🧃
 """)
 
 # Tabs
@@ -39,7 +39,7 @@ with tab1:
     ### 🛠️ Cara Menggunakan:
     1. Buka tab **Simulasi**
     2. Pilih jumlah buah yang ingin digunakan (**n**)
-    3. Masukkan nama-nama buah unik (misalnya: Apel, Jeruk, dll)
+    3. Masukkan nama-nama buah (misalnya: Apel, Jeruk, dll)
     4. Pilih berapa banyak buah ingin dicampur (**r**)
     5. Klik **Generate Kombinasi**
     6. Lihat hasil kombinasi lengkap dengan emoji 🍓🍇🍊
@@ -60,7 +60,7 @@ with tab2:
         value=5
     )
 
-    st.markdown("### Masukkan nama buah unik:")
+    st.markdown("### Masukkan nama buah:")
 
     buah_list = []
     nama_buah_valid = True
