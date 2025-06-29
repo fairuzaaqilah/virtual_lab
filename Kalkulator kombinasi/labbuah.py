@@ -2,73 +2,61 @@ import streamlit as st
 import itertools
 import math
 
-st.set_page_config(page_title="Laboratorium Virtual Kombinasi Buah", layout="centered")
+st.title("🧃 Simulasi Kombinasi Buah dengan Input Nama Buah")
 
-daftar_buah_tersedia = [
-    "Apel", "Jeruk", "Mangga", "Pisang", "Stroberi",
-    "Semangka", "Nanas", "Anggur", "Kiwi", "Melon",
-    "Blueberry", "Ceri", "Alpukat"
-]
+# Pilih jumlah buah yang ingin digunakan (n)
+jumlah_buah = st.slider(
+    "Pilih jumlah jenis buah yang ingin digunakan (n):",
+    min_value=1,
+    max_value=20,
+    value=5
+)
 
-# Sidebar menu
-menu = st.sidebar.selectbox("Menu", ["Panduan", "Simulasi"])
+st.markdown("### Masukkan nama buah unik:")
 
-if menu == "Panduan":
-    st.title("📖 Panduan Laboratorium Virtual Kombinasi Buah")
+buah_list = []
+nama_buah_valid = True
+duplikat_buah = False
 
-    st.markdown("""
-    Selamat datang di laboratorium virtual kombinasi buah!  
-    Berikut cara menggunakan aplikasi ini:
+# Input nama buah sebanyak jumlah_buah
+for i in range(jumlah_buah):
+    buah = st.text_input(f"Buah ke-{i+1}:", key=f"buah_{i}")
+    buah_list.append(buah.strip())
 
-    1. **Simulasi**:  
-       - Pilih menu *Simulasi* di sidebar.  
-       - Gunakan slider untuk memilih jumlah jenis buah (n).  
-       - Sistem otomatis memilih n buah pertama dari daftar buah tersedia.  
-       - Pilih jumlah buah yang ingin dicampur (r) menggunakan slider.  
-       - Klik tombol **Generate Kombinasi** untuk melihat daftar kombinasi buah yang mungkin.  
-       
-    2. **Catatan**:  
-       - Nilai *r* harus kurang dari atau sama dengan *n*.  
-       - Kombinasi dihitung berdasarkan rumus matematika C(n, r).  
-       - Daftar buah bisa disesuaikan di kode sumber sesuai kebutuhan.  
-       
-    Selamat mencoba dan bereksperimen dengan kombinasi buah untuk jus favoritmu! 🧃🍓
-    """)
+# Validasi input nama buah tidak boleh kosong dan tidak boleh duplikat
+buah_unik = []
+for b in buah_list:
+    if b != "" and b not in buah_unik:
+        buah_unik.append(b)
 
-elif menu == "Simulasi":
-    st.title("🧃 Simulasi Kombinasi Buah")
+if len([b for b in buah_list if b.strip() == ""]) > 0:
+    st.warning("Nama buah tidak boleh kosong semua.")
+    nama_buah_valid = False
 
-    # Pilih jumlah buah yang ingin digunakan
-    jumlah_buah = st.slider(
-        "Pilih jumlah jenis buah yang ingin digunakan (n):",
-        min_value=1,
-        max_value=len(daftar_buah_tersedia),
-        value=5
-    )
+if len(buah_unik) != len([b for b in buah_list if b.strip() != ""]):
+    st.warning("Tidak boleh memasukkan nama buah yang sama.")
+    duplikat_buah = True
 
-    # Daftar buah yang dipakai
-    buah_list = daftar_buah_tersedia[:jumlah_buah]
-    n = len(buah_list)
-
-    st.markdown(f"**Buah yang digunakan:** {', '.join(buah_list)}")
-
-    # Slider untuk memilih r (jumlah buah dalam kombinasi)
+# Jika input valid, tampilkan slider r dengan max = jumlah buah unik yang valid
+if nama_buah_valid and not duplikat_buah and len(buah_unik) > 0:
     r = st.slider(
         "Jumlah buah yang ingin dicampur (r):",
         min_value=1,
-        max_value=n,
+        max_value=len(buah_unik),
         value=2
     )
 
     if st.button("Generate Kombinasi"):
-        if n >= r and r > 0:
-            total_kombinasi = math.comb(n, r)
-            hasil_kombinasi = list(itertools.combinations(buah_list, r))
+        if len(buah_unik) >= r and r > 0:
+            total_kombinasi = math.comb(len(buah_unik), r)
+            hasil_kombinasi = list(itertools.combinations(buah_unik, r))
 
-            st.success(f"Jumlah kombinasi (C({n}, {r})) = {total_kombinasi}")
+            st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
 
             st.write("### 🔽 Daftar Kombinasi:")
             for i, combo in enumerate(hasil_kombinasi, 1):
                 st.write(f"{i}. {', '.join(combo)}")
         else:
             st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
+else:
+    st.info("Masukkan nama buah unik untuk mengaktifkan kombinasi.")
