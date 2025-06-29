@@ -21,16 +21,21 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
+# Judul dan pengantar di atas tab
+st.title("🍹 Laboratorium Kombinasi Buah")
+
+st.markdown("""
+Selamat datang di **laboratorium kombinasi buah**!  
+Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu. 🧃
+""")
+
 # Tabs
 tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
 
 with tab1:
-    st.title("📖 Panduan Laboratorium Virtual Kombinasi Buah")
+    st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
 
     st.markdown("""
-    Selamat datang di **laboratorium virtual kombinasi buah**!  
-    Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu.
-
     ### 🛠️ Cara Menggunakan:
     1. Buka tab **Simulasi**
     2. Pilih jumlah buah yang ingin digunakan (**n**)
@@ -46,7 +51,7 @@ with tab1:
     """)
 
 with tab2:
-    st.title("🧃 Simulasi Kombinasi Buah")
+    st.subheader("🧃 Simulasi Kombinasi Buah")
 
     jumlah_buah = st.slider(
         "Pilih jumlah jenis buah yang ingin digunakan (n):",
