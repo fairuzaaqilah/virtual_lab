@@ -12,7 +12,7 @@ daftar_buah_tersedia = [
 
 # Pilih jumlah buah yang ingin digunakan
 jumlah_buah = st.slider(
-    "Pilih jumlah jenis buah yang ingin digunakan:",
+    "Pilih jumlah jenis buah yang ingin digunakan (n):",
     min_value=1,
     max_value=len(daftar_buah_tersedia),
     value=5
@@ -24,13 +24,12 @@ n = len(buah_list)
 
 st.markdown(f"**Buah yang digunakan:** {', '.join(buah_list)}")
 
-# Input r
-r = st.number_input(
+# Slider untuk memilih r (jumlah buah dalam kombinasi)
+r = st.slider(
     "Jumlah buah yang ingin dicampur (r):",
     min_value=1,
     max_value=n,
-    value=2,
-    step=1
+    value=2
 )
 
 if st.button("Generate Kombinasi"):
