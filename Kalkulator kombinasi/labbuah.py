@@ -25,7 +25,7 @@ emoji_buah = {
 st.title("🍹 Laboratorium Kombinasi Buah")
 
 st.markdown("""
-Selamat datang di **laboratorium kombinasi buah**!  
+Selamat datang di laboratorium kombinasi buah!  
 Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu🧃
 """)
 
@@ -42,12 +42,10 @@ with tab1:
     3. Masukkan nama-nama buah (misalnya: Apel, Jeruk, dll)
     4. Pilih berapa banyak buah ingin dicampur (**r**)
     5. Klik **Generate Kombinasi**
-    6. Lihat hasil kombinasi lengkap dengan emoji 🍓🍇🍊
+    6. Lihat hasil kombinasi
 
     ### ⚠️ Catatan:
     - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**
-    - Nilai **r** harus kurang dari atau sama dengan jumlah buah
-    - Kombinasi dihitung dengan rumus matematika: C(n, r)
     """)
 
 with tab2:
@@ -110,4 +108,4 @@ with tab2:
             else:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
-        st.info("Masukkan nama buah unik terlebih dahulu untuk melanjutkan.")
+        st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
