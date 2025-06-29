@@ -2,7 +2,24 @@ import streamlit as st
 import itertools
 import math
 
-st.title("🧃 Simulasi Kombinasi Buah dengan Input Nama Buah")
+st.title("🧃 Simulasi Kombinasi Buah dengan Input Nama Buah + Emoji")
+
+# Mapping buah ke emoji sederhana
+emoji_buah = {
+    "apel": "🍎",
+    "jeruk": "🍊",
+    "mangga": "🥭",
+    "pisang": "🍌",
+    "stroberi": "🍓",
+    "semangka": "🍉",
+    "nanas": "🍍",
+    "anggur": "🍇",
+    "kiwi": "🥝",
+    "melon": "🍈",
+    "blueberry": "🫐",
+    "ceri": "🍒",
+    "alpukat": "🥑"
+}
 
 # Pilih jumlah buah yang ingin digunakan (n)
 jumlah_buah = st.slider(
@@ -26,7 +43,7 @@ for i in range(jumlah_buah):
 # Validasi input nama buah tidak boleh kosong dan tidak boleh duplikat
 buah_unik = []
 for b in buah_list:
-    if b != "" and b not in buah_unik:
+    if b != "" and b.lower() not in [x.lower() for x in buah_unik]:
         buah_unik.append(b)
 
 if len([b for b in buah_list if b.strip() == ""]) > 0:
@@ -36,6 +53,13 @@ if len([b for b in buah_list if b.strip() == ""]) > 0:
 if len(buah_unik) != len([b for b in buah_list if b.strip() != ""]):
     st.warning("Tidak boleh memasukkan nama buah yang sama.")
     duplikat_buah = True
+
+def dengan_emoji(nama):
+    key = nama.lower()
+    if key in emoji_buah:
+        return f"{emoji_buah[key]} {nama}"
+    else:
+        return nama
 
 # Jika input valid, tampilkan slider r dengan max = jumlah buah unik yang valid
 if nama_buah_valid and not duplikat_buah and len(buah_unik) > 0:
@@ -55,7 +79,8 @@ if nama_buah_valid and not duplikat_buah and len(buah_unik) > 0:
 
             st.write("### 🔽 Daftar Kombinasi:")
             for i, combo in enumerate(hasil_kombinasi, 1):
-                st.write(f"{i}. {', '.join(combo)}")
+                combo_emoji = [dengan_emoji(x) for x in combo]
+                st.write(f"{i}. {', '.join(combo_emoji)}")
         else:
             st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
 else:
