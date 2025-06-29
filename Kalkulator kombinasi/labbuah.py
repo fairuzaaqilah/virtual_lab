@@ -2,8 +2,9 @@ import streamlit as st
 import itertools
 import math
 
-st.set_page_config(page_title="Laboratorium Virtual Kombinasi Buah", layout="centered")
+st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
+# Emoji mapping
 emoji_buah = {
     "apel": "🍎",
     "jeruk": "🍊",
@@ -20,32 +21,32 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-menu = st.sidebar.radio("Pilih Menu", ["Panduan", "Simulasi"])
+# Tabs
+tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
 
-if menu == "Panduan":
+with tab1:
     st.title("📖 Panduan Laboratorium Virtual Kombinasi Buah")
 
     st.markdown("""
-    Selamat datang di laboratorium virtual kombinasi buah!  
-    Berikut cara menggunakan aplikasi ini:
+    Selamat datang di **laboratorium virtual kombinasi buah**!  
+    Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu.
 
-    1. **Simulasi**:  
-       - Pilih menu *Simulasi* di sidebar.  
-       - Gunakan slider untuk memilih jumlah jenis buah (n).  
-       - Masukkan nama buah unik satu per satu (tidak boleh duplikat dan tidak kosong).  
-       - Pilih jumlah buah yang ingin dicampur (r) menggunakan slider.  
-       - Klik tombol **Generate Kombinasi** untuk melihat daftar kombinasi buah yang mungkin lengkap dengan emoji.  
-       
-    2. **Catatan**:  
-       - Nilai *r* harus kurang dari atau sama dengan *n*.  
-       - Kombinasi dihitung berdasarkan rumus matematika C(n, r).  
-       - Daftar buah bisa disesuaikan di kode sumber sesuai kebutuhan.  
-       
-    Selamat mencoba dan bereksperimen dengan kombinasi buah untuk jus favoritmu! 🧃🍓
+    ### 🛠️ Cara Menggunakan:
+    1. Buka tab **Simulasi**
+    2. Pilih jumlah buah yang ingin digunakan (**n**)
+    3. Masukkan nama-nama buah unik (misalnya: Apel, Jeruk, dll)
+    4. Pilih berapa banyak buah ingin dicampur (**r**)
+    5. Klik **Generate Kombinasi**
+    6. Lihat hasil kombinasi lengkap dengan emoji 🍓🍇🍊
+
+    ### ⚠️ Catatan:
+    - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**
+    - Nilai **r** harus kurang dari atau sama dengan jumlah buah
+    - Kombinasi dihitung dengan rumus matematika: C(n, r)
     """)
 
-elif menu == "Simulasi":
-    st.title("🧃 Simulasi Kombinasi Buah dengan Input Nama Buah + Emoji")
+with tab2:
+    st.title("🧃 Simulasi Kombinasi Buah")
 
     jumlah_buah = st.slider(
         "Pilih jumlah jenis buah yang ingin digunakan (n):",
@@ -64,11 +65,44 @@ elif menu == "Simulasi":
         buah = st.text_input(f"Buah ke-{i+1}:", key=f"buah_{i}")
         buah_list.append(buah.strip())
 
+    # Validasi input
     buah_unik = []
     for b in buah_list:
         if b != "" and b.lower() not in [x.lower() for x in buah_unik]:
             buah_unik.append(b)
 
     if len([b for b in buah_list if b.strip() == ""]) > 0:
-        st.warning("Nama buah tidak boleh kosong semua.")
+        st.warning("⚠️ Nama buah tidak boleh kosong.")
         nama_buah_valid = False
+
+    if len(buah_unik) != len([b for b in buah_list if b.strip() != ""]):
+        st.warning("⚠️ Tidak boleh memasukkan nama buah yang sama.")
+        duplikat_buah = True
+
+    def dengan_emoji(nama):
+        key = nama.lower()
+        return f"{emoji_buah[key]} {nama}" if key in emoji_buah else nama
+
+    if nama_buah_valid and not duplikat_buah and len(buah_unik) > 0:
+        r = st.slider(
+            "Jumlah buah yang ingin dicampur (r):",
+            min_value=1,
+            max_value=len(buah_unik),
+            value=2
+        )
+
+        if st.button("Generate Kombinasi"):
+            if len(buah_unik) >= r and r > 0:
+                total_kombinasi = math.comb(len(buah_unik), r)
+                hasil_kombinasi = list(itertools.combinations(buah_unik, r))
+
+                st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
+
+                st.write("### 🔽 Daftar Kombinasi:")
+                for i, combo in enumerate(hasil_kombinasi, 1):
+                    combo_emoji = [dengan_emoji(x) for x in combo]
+                    st.write(f"{i}. {', '.join(combo_emoji)}")
+            else:
+                st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
+    else:
+        st.info("Masukkan nama buah unik terlebih dahulu untuk melanjutkan.")
