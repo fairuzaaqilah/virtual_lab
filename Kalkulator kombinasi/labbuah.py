@@ -26,7 +26,7 @@ st.title("🍹 Laboratorium Kombinasi Buah")
 
 st.markdown("""
 Selamat datang di laboratorium kombinasi buah!  
-Di sini Pada kegiatan ini, kamu akan melakukan simulasi untuk melihat bagaimana berbagai buah dapat dikombinasikan menjadi campuran jus🧃. Tetapi bukan hanya sekadar mencampur buah — kamu juga akan belajar konsep matematika kombinasi untuk menghitung banyaknya cara memilih sejumlah buah dari sekumpulan buah yang tersedia.
+Di sini, kamu akan melakukan simulasi untuk melihat bagaimana berbagai buah dapat dikombinasikan menjadi campuran jus🧃. Tetapi bukan hanya sekadar mencampur buah — kamu juga akan belajar konsep matematika kombinasi untuk menghitung banyaknya cara memilih sejumlah buah dari sekumpulan buah yang tersedia.
 """)
 
 # Tabs
