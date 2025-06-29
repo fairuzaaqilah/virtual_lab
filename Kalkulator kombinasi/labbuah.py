@@ -20,7 +20,7 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-menu = st.sidebar.selectbox("Menu", ["Panduan", "Simulasi"])
+menu = st.sidebar.radio("Pilih Menu", ["Panduan", "Simulasi"])
 
 if menu == "Panduan":
     st.title("📖 Panduan Laboratorium Virtual Kombinasi Buah")
