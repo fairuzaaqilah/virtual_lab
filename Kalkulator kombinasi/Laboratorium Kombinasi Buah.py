@@ -94,26 +94,26 @@ with tab2:
             value=2
         )
 
-        if st.button("Generate Kombinasi"):
-    if len(buah_unik) >= r and r > 0:
-        total_kombinasi = math.comb(len(buah_unik), r)
-        hasil_kombinasi = list(itertools.combinations(buah_unik, r))
+    if st.button("Generate Kombinasi"):
+        if len(buah_unik) >= r and r > 0:
+            total_kombinasi = math.comb(len(buah_unik), r)
+            hasil_kombinasi = list(itertools.combinations(buah_unik, r))
 
-        st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
+            st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
 
-        st.write("### 🔽 Daftar Kombinasi:")
-        for i, combo in enumerate(hasil_kombinasi, 1):
-            combo_emoji = [dengan_emoji(x) for x in combo]
-            st.write(f"{i}. {', '.join(combo_emoji)}")
+            st.write("### 🔽 Daftar Kombinasi:")
+            for i, combo in enumerate(hasil_kombinasi, 1):
+                combo_emoji = [dengan_emoji(x) for x in combo]
+                st.write(f"{i}. {', '.join(combo_emoji)}")
 
         # Animasi balon confetti
-        st.balloons()
+            st.balloons()
 
         # Animasi GIF jus buah (ganti URL dengan yang kamu suka)
-        st.image(
-            "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
-            caption="Jus buah siap dinikmati! 🧃",
-            use_column_width=True,
+            st.image(
+                "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+                caption="Jus buah siap dinikmati! 🧃",
+                use_column_width=True,
         )
     else:
         st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
