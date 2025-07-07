@@ -29,11 +29,24 @@ Selamat datang di laboratorium kombinasi buah!
 Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
 """)
 
-# Tabs utama
-tab1, tab2, tab3 = st.tabs(["📖 Panduan", "🧃 Simulasi", "🎯 Tujuan Pembelajaran"])
+# Tabs utama (Tujuan dipindah jadi yang pertama)
+tab1, tab2, tab3 = st.tabs(["🎯 Tujuan Pembelajaran", "📖 Panduan", "🧃 Simulasi"])
+
+# Tab Tujuan Pembelajaran
+with tab1:
+    st.subheader("🎯 Tujuan Pembelajaran")
+
+    st.markdown("""
+    Setelah menyelesaikan aktivitas ini, siswa diharapkan dapat:
+    
+    - Memahami konsep dasar **kombinasi** dalam matematika  
+    - Menentukan banyaknya cara memilih objek dari suatu kumpulan tanpa memperhatikan urutan  
+    - Menerapkan konsep kombinasi dalam situasi nyata, seperti mencampur buah  
+    - Menganalisis perubahan jumlah kombinasi saat nilai **n** (jumlah buah) atau **r** (jumlah campuran) diubah
+    """)
 
 # Tab Panduan
-with tab1:
+with tab2:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
 
     st.markdown("""
@@ -50,7 +63,7 @@ with tab1:
     """)
 
 # Tab Simulasi
-with tab2:
+with tab3:
     st.subheader("🧃 Simulasi Kombinasi Buah")
 
     jumlah_buah = st.slider(
@@ -113,16 +126,3 @@ with tab2:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
         st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
-
-# Tab Tujuan Pembelajaran
-with tab3:
-    st.subheader("🎯 Tujuan Pembelajaran")
-
-    st.markdown("""
-    Setelah menyelesaikan aktivitas ini, siswa diharapkan dapat:
-    
-    - Memahami konsep dasar **kombinasi** dalam matematika
-    - Menentukan banyaknya cara memilih objek dari suatu kumpulan tanpa memperhatikan urutan
-    - Menerapkan konsep kombinasi dalam situasi nyata, seperti mencampur buah
-    - Menganalisis perubahan jumlah kombinasi saat nilai **n** (jumlah buah) atau **r** (jumlah campuran) diubah
-    """)
