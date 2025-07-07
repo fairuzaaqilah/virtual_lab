@@ -21,7 +21,7 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-# Judul dan pengantar di atas tab
+# Judul halaman
 st.title("🍹 Laboratorium Kombinasi Buah")
 
 st.markdown("""
@@ -29,22 +29,14 @@ Selamat datang di laboratorium kombinasi buah!
 Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
 """)
 
-# Tabs
-tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
+# Tabs utama
+tab1, tab2, tab3 = st.tabs(["📖 Panduan", "🧃 Simulasi", "🎯 Tujuan Pembelajaran"])
 
+# Tab Panduan
 with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
 
     st.markdown("""
-    ### 🎯 Tujuan Pembelajaran
-    Setelah menyelesaikan aktivitas ini, kamu diharapkan dapat:
-    - Memahami konsep dasar kombinasi dalam matematika
-    - Menghitung jumlah kombinasi dari beberapa objek
-    - Menggunakan laboratorium virtual untuk mengeksplorasi kombinasi buah
-    - Menyimpulkan pola kombinasi berdasarkan perubahan jumlah buah atau campuran
-
-    ---
-
     ### 🛠️ Cara Menggunakan:
     1. Buka tab **Simulasi**
     2. Pilih jumlah buah yang ingin digunakan (**n**)
@@ -57,6 +49,7 @@ with tab1:
     - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**
     """)
 
+# Tab Simulasi
 with tab2:
     st.subheader("🧃 Simulasi Kombinasi Buah")
 
@@ -115,9 +108,21 @@ with tab2:
                     combo_emoji = [dengan_emoji(x) for x in combo]
                     st.write(f"{i}. {', '.join(combo_emoji)}")
 
-                # Animasi balon setelah kombinasi berhasil dibuat
                 st.balloons()
             else:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
         st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
+
+# Tab Tujuan Pembelajaran
+with tab3:
+    st.subheader("🎯 Tujuan Pembelajaran")
+
+    st.markdown("""
+    Setelah menyelesaikan aktivitas ini, siswa diharapkan dapat:
+    
+    - Memahami konsep dasar **kombinasi** dalam matematika
+    - Menentukan banyaknya cara memilih objek dari suatu kumpulan tanpa memperhatikan urutan
+    - Menerapkan konsep kombinasi dalam situasi nyata, seperti mencampur buah
+    - Menganalisis perubahan jumlah kombinasi saat nilai **n** (jumlah buah) atau **r** (jumlah campuran) diubah
+    """)
