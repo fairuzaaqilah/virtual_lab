@@ -37,12 +37,7 @@ with tab1:
     st.subheader("🎯 Tujuan Pembelajaran")
 
     st.markdown("""
-    Setelah menyelesaikan aktivitas ini, siswa diharapkan dapat:
-    
-    - Memahami konsep dasar **kombinasi** dalam matematika  
-    - Menentukan banyaknya cara memilih objek dari suatu kumpulan tanpa memperhatikan urutan  
-    - Menerapkan konsep kombinasi dalam situasi nyata, seperti mencampur buah  
-    - Menganalisis perubahan jumlah kombinasi saat nilai **n** (jumlah buah) atau **r** (jumlah campuran) diubah
+    Setelah menyelesaikan pembelajaran ini, siswa diharapkan dapat memahami konsep  kombinasi sederhana.
     """)
 
 # Tab Panduan
