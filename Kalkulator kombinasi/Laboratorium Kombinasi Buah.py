@@ -106,47 +106,8 @@ with tab2:
                     combo_emoji = [dengan_emoji(x) for x in combo]
                     st.write(f"{i}. {', '.join(combo_emoji)}")
 
-                # Animasi balon confetti
+                # Animasi balon
                 st.balloons()
-
-                # Animasi salju turun pakai HTML + CSS + JS
-                snow_html = """
-                <style>
-                @keyframes snow {
-                  0% {transform: translateY(0);}
-                  100% {transform: translateY(100vh);}
-                }
-                .snowflake {
-                  position: fixed;
-                  top: -10px;
-                  z-index: 9999;
-                  user-select: none;
-                  pointer-events: none;
-                  animation-name: snow;
-                  animation-timing-function: linear;
-                  animation-iteration-count: infinite;
-                  animation-duration: 10s;
-                  color: white;
-                  font-size: 1.5em;
-                  text-shadow: 0 0 5px #000;
-                }
-                .snowflake:nth-child(odd) {
-                  animation-duration: 15s;
-                  font-size: 1em;
-                }
-                </style>
-                <div class="snowflake" style="left: 10%;">❄️</div>
-                <div class="snowflake" style="left: 20%; animation-delay: 2s;">❄️</div>
-                <div class="snowflake" style="left: 30%; animation-delay: 4s;">❄️</div>
-                <div class="snowflake" style="left: 40%; animation-delay: 6s;">❄️</div>
-                <div class="snowflake" style="left: 50%; animation-delay: 8s;">❄️</div>
-                <div class="snowflake" style="left: 60%; animation-delay: 10s;">❄️</div>
-                <div class="snowflake" style="left: 70%; animation-delay: 12s;">❄️</div>
-                <div class="snowflake" style="left: 80%; animation-delay: 14s;">❄️</div>
-                <div class="snowflake" style="left: 90%; animation-delay: 16s;">❄️</div>
-                """
-
-                st.markdown(snow_html, unsafe_allow_html=True)
 
             else:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
