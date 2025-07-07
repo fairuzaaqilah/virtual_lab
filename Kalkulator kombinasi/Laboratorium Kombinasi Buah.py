@@ -30,7 +30,12 @@ Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu🧃
 """)
 
 # Tabs
-tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📖 Panduan",
+    "🧃 Simulasi",
+    "📘 Materi Kombinasi",
+    "🧠 Latihan Soal"
+])
 
 with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
@@ -113,3 +118,11 @@ with tab2:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
         st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
+        
+    with tab3:
+        st.subheader("📘 Materi & Tujuan Pembelajaran Kombinasi")
+
+        st.markdown("""
+        ### 🎯 Tujuan Pembelajaran
+        Setelah mengikuti kegiatan ini, siswa dihar
+
