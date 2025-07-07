@@ -5,9 +5,9 @@ if st.button("Generate Kombinasi"):
 
         st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
 
-        # 🎉 Efek animasi
+        # Efek animasi 🎈
         st.balloons()
-        st.toast("🎉 Kombinasi berhasil dibuat!", icon="🍹")
+        st.success("🎉 Kombinasi berhasil dibuat!")
 
         st.write("### 🔽 Daftar Kombinasi:")
         for i, combo in enumerate(hasil_kombinasi, 1):
