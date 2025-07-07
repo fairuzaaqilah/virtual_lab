@@ -26,21 +26,25 @@ st.title("🍹 Laboratorium Kombinasi Buah")
 
 st.markdown("""
 Selamat datang di laboratorium kombinasi buah!  
-Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu🧃
+Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
 """)
 
 # Tabs
-tab1, tab2, tab3, tab4 = st.tabs([
-    "📖 Panduan",
-    "🧃 Simulasi",
-    "📘 Materi Kombinasi",
-    "🧠 Latihan Soal"
-])
+tab1, tab2 = st.tabs(["📖 Panduan", "🧃 Simulasi"])
 
 with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
 
     st.markdown("""
+    ### 🎯 Tujuan Pembelajaran
+    Setelah menyelesaikan aktivitas ini, kamu diharapkan dapat:
+    - Memahami konsep dasar kombinasi dalam matematika
+    - Menghitung jumlah kombinasi dari beberapa objek
+    - Menggunakan laboratorium virtual untuk mengeksplorasi kombinasi buah
+    - Menyimpulkan pola kombinasi berdasarkan perubahan jumlah buah atau campuran
+
+    ---
+
     ### 🛠️ Cara Menggunakan:
     1. Buka tab **Simulasi**
     2. Pilih jumlah buah yang ingin digunakan (**n**)
@@ -111,18 +115,9 @@ with tab2:
                     combo_emoji = [dengan_emoji(x) for x in combo]
                     st.write(f"{i}. {', '.join(combo_emoji)}")
 
-                # Animasi balon
+                # Animasi balon setelah kombinasi berhasil dibuat
                 st.balloons()
-
             else:
                 st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
         st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
-        
-    with tab3:
-        st.subheader("📘 Materi & Tujuan Pembelajaran Kombinasi")
-
-        st.markdown("""
-        ### 🎯 Tujuan Pembelajaran
-        Setelah mengikuti kegiatan ini, siswa dihar
-
