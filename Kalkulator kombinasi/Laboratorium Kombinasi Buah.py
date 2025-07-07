@@ -1,8 +1,21 @@
 import streamlit as st
 import itertools
 import math
+from streamlit_lottie import st_lottie
+import requests
 
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
+
+# Fungsi untuk load animasi dari URL
+def load_lottie_url(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+# Load animasi
+lottie_juice = load_lottie_url("https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json")  # Jus buah
+lottie_fruit = load_lottie_url("https://assets10.lottiefiles.com/private_files/lf30_dgufmvfg.json")  # Buah-buahan
 
 # Emoji mapping
 emoji_buah = {
@@ -23,6 +36,7 @@ emoji_buah = {
 
 # Judul dan pengantar di atas tab
 st.title("🍹 Laboratorium Kombinasi Buah")
+st_lottie(lottie_juice, height=250, key="juice_intro")
 
 st.markdown("""
 Selamat datang di laboratorium kombinasi buah!  
@@ -47,6 +61,8 @@ with tab1:
     ### ⚠️ Catatan:
     - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**
     """)
+    
+    st_lottie(lottie_fruit, height=200, key="fruit_guide")
 
 with tab2:
     st.subheader("🧃 Simulasi Kombinasi Buah")
