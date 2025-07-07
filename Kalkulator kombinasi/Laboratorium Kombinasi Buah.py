@@ -94,26 +94,61 @@ with tab2:
             value=2
         )
 
-    if st.button("Generate Kombinasi"):
-        if len(buah_unik) >= r and r > 0:
-            total_kombinasi = math.comb(len(buah_unik), r)
-            hasil_kombinasi = list(itertools.combinations(buah_unik, r))
+        if st.button("Generate Kombinasi"):
+            if len(buah_unik) >= r and r > 0:
+                total_kombinasi = math.comb(len(buah_unik), r)
+                hasil_kombinasi = list(itertools.combinations(buah_unik, r))
 
-            st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
+                st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
 
-            st.write("### 🔽 Daftar Kombinasi:")
-            for i, combo in enumerate(hasil_kombinasi, 1):
-                combo_emoji = [dengan_emoji(x) for x in combo]
-                st.write(f"{i}. {', '.join(combo_emoji)}")
+                st.write("### 🔽 Daftar Kombinasi:")
+                for i, combo in enumerate(hasil_kombinasi, 1):
+                    combo_emoji = [dengan_emoji(x) for x in combo]
+                    st.write(f"{i}. {', '.join(combo_emoji)}")
 
-        # Animasi balon confetti
-            st.balloons()
+                # Animasi balon confetti
+                st.balloons()
 
-        # Animasi GIF jus buah (ganti URL dengan yang kamu suka)
-            st.image(
-                "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
-                caption="Jus buah siap dinikmati! 🧃",
-                use_column_width=True,
-        )
+                # Animasi salju turun pakai HTML + CSS + JS
+                snow_html = """
+                <style>
+                @keyframes snow {
+                  0% {transform: translateY(0);}
+                  100% {transform: translateY(100vh);}
+                }
+                .snowflake {
+                  position: fixed;
+                  top: -10px;
+                  z-index: 9999;
+                  user-select: none;
+                  pointer-events: none;
+                  animation-name: snow;
+                  animation-timing-function: linear;
+                  animation-iteration-count: infinite;
+                  animation-duration: 10s;
+                  color: white;
+                  font-size: 1.5em;
+                  text-shadow: 0 0 5px #000;
+                }
+                .snowflake:nth-child(odd) {
+                  animation-duration: 15s;
+                  font-size: 1em;
+                }
+                </style>
+                <div class="snowflake" style="left: 10%;">❄️</div>
+                <div class="snowflake" style="left: 20%; animation-delay: 2s;">❄️</div>
+                <div class="snowflake" style="left: 30%; animation-delay: 4s;">❄️</div>
+                <div class="snowflake" style="left: 40%; animation-delay: 6s;">❄️</div>
+                <div class="snowflake" style="left: 50%; animation-delay: 8s;">❄️</div>
+                <div class="snowflake" style="left: 60%; animation-delay: 10s;">❄️</div>
+                <div class="snowflake" style="left: 70%; animation-delay: 12s;">❄️</div>
+                <div class="snowflake" style="left: 80%; animation-delay: 14s;">❄️</div>
+                <div class="snowflake" style="left: 90%; animation-delay: 16s;">❄️</div>
+                """
+
+                st.markdown(snow_html, unsafe_allow_html=True)
+
+            else:
+                st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
     else:
-        st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
+        st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
