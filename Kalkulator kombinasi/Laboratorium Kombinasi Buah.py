@@ -86,38 +86,4 @@ with tab3:
 
     if len([b for b in buah_list if b.strip() == ""]) > 0:
         st.warning("⚠️ Nama buah tidak boleh kosong.")
-        nama_buah_valid = False
-
-    if len(buah_unik) != len([b for b in buah_list if b.strip() != ""]):
-        st.warning("⚠️ Tidak boleh memasukkan nama buah yang sama.")
-        duplikat_buah = True
-
-    def dengan_emoji(nama):
-        key = nama.lower()
-        return f"{emoji_buah[key]} {nama}" if key in emoji_buah else nama
-
-    if nama_buah_valid and not duplikat_buah and len(buah_unik) > 0:
-        r = st.slider(
-            "Jumlah buah yang ingin dicampur (r):",
-            min_value=1,
-            max_value=len(buah_unik),
-            value=2
-        )
-
-        if st.button("Generate Kombinasi"):
-            if len(buah_unik) >= r and r > 0:
-                total_kombinasi = math.comb(len(buah_unik), r)
-                hasil_kombinasi = list(itertools.combinations(buah_unik, r))
-
-                st.success(f"Jumlah kombinasi (C({len(buah_unik)}, {r})) = {total_kombinasi}")
-
-                st.write("### 🔽 Daftar Kombinasi:")
-                for i, combo in enumerate(hasil_kombinasi, 1):
-                    combo_emoji = [dengan_emoji(x) for x in combo]
-                    st.write(f"{i}. {', '.join(combo_emoji)}")
-
-                st.balloons()
-            else:
-                st.warning("Jumlah buah (n) harus ≥ r dan r > 0.")
-    else:
-        st.info("Masukkan nama buah terlebih dahulu untuk melanjutkan.")
+        nama_buah_va
