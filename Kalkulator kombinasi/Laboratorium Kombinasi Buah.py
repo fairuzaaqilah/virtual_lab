@@ -82,9 +82,30 @@ with tab3:
     ### 🧮 Rumus Kombinasi  
     Rumus kombinasi untuk memilih **r** objek dari **n** objek:
     
-    \[
-    C(n, r) = \\frac{n!}{r!(n - r)!}
-    \]
+    Rumus kombinasi untuk memilih r objek dari n objek:
+
+𝐶
+(
+𝑛
+,
+𝑟
+)
+=
+𝑛
+!
+𝑟
+!
+(
+𝑛
+−
+𝑟
+)
+!
+C(n,r)= 
+r!(n−r)!
+n!
+​
+
     
     ### 🔢 Contoh:  
     Jika kamu punya 5 buah dan ingin memilih 3:
