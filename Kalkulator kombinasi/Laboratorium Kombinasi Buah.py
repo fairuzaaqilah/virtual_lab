@@ -4,17 +4,32 @@ import itertools
 # Konfigurasi halaman
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
-# ===== CSS untuk background polos soft =====
+# ===== CSS Background Polos Lembut untuk Semua Area =====
 st.markdown("""
     <style>
+    /* Latar belakang seluruh aplikasi */
     .stApp {
-        background-color: #f0f8ff;  /* Warna biru muda lembut */
+        background-color: #f0f8ff;
     }
 
+    /* Kontainer utama (konten tengah) */
     .block-container {
         background-color: rgba(255, 255, 255, 0.9);
-        padding: 2rem;
-        border-radius: 10px;
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    /* Sidebar */
+    [data-testid="stSidebar"] {
+        background-color: #e6f2ff;
+    }
+
+    /* Tab background (bagian atas tab) */
+    div[data-testid="stTabs"] > div {
+        background-color: #e9f4ff;
+        border-radius: 8px;
+        padding: 5px;
     }
 
     h1, h2, h3, h4, h5, h6 {
