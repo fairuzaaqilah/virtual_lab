@@ -66,7 +66,7 @@ with tab2:
 
 # Tab Pengantar Materi
 with tab3:
-    st.subheader("🎓 Pengantar: Apa Itu Kombinasi?")
+    st.subheader("🎓 Apa Itu Kombinasi?")
     
     st.markdown("""
     ### 📌 Definisi  
