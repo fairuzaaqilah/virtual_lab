@@ -85,7 +85,7 @@ with tab3:
     - Memilih tim dari sekelompok siswa
 
     ---  
-    ### ✅ Siap Bereksperimen?  
+    ### 🧪🌡 Siap Bereksperimen?  
     Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
     """)
 
