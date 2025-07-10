@@ -86,4 +86,3 @@ with tab3:
 
     if len([b for b in buah_list if b.strip() == ""]) > 0:
         st.warning("⚠️ Nama buah tidak boleh kosong.")
-        nama_buah_va
