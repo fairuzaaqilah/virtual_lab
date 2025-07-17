@@ -4,7 +4,7 @@ import itertools
 # Konfigurasi halaman
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
-# ===== CSS Background Polos =====
+# ===== CSS Tampilan Lembut =====
 st.markdown("""
     <style>
     .stApp { background-color: #f0f8ff; }
@@ -43,11 +43,12 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-# Judul utama
-st.title("🍹 Laboratorium Kombinasi Buah")
-st.markdown("Selamat datang di laboratorium kombinasi buah!  
+# Judul utama (diperkecil)
+st.header("🍹 Laboratorium Kombinasi Buah")
+st.markdown("""
+Selamat datang di laboratorium kombinasi buah!  
 Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
-")
+""")
 
 # Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -62,14 +63,15 @@ with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
-    1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
-    2. Lanjut ke tab Pengantar Materi untuk memahami konsep kombinasi.
-    3. Klik tab Simulasi untuk bereksperimen.
-    4. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
-    5. Klik Generate Kombinasi untuk melihat hasilnya.
-    
+    1. Buka tab **Tujuan Pembelajaran** untuk memahami apa yang akan dipelajari.
+    2. Lanjut ke tab **Pengantar Materi** untuk memahami konsep kombinasi.
+    3. Klik tab **Simulasi** untuk bereksperimen.
+    4. Pilih jumlah buah (`n`) dan jumlah buah yang dicampur (`r`).
+    5. Klik **Generate Kombinasi** untuk melihat hasilnya.
+
     ### ⚠️ Catatan:
-    - Nama buah tidak boleh kosong dan tidak boleh duplikat.
+    - Nama buah tidak boleh kosong.
+    - Tidak boleh ada buah yang sama (duplikat).
     """)
 
 # Tab 2 - Tujuan
@@ -81,13 +83,13 @@ with tab2:
     - Menuliskan kemungkinan kombinasi dari beberapa benda tanpa rumus.
     - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
     - Menyelesaikan soal kombinasi dengan rumus yang sesuai.
-    - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi
+    - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi.
     """)
 
 # Tab 3 - Pengantar Materi
 with tab3:
     st.subheader("🎓 Apa Itu Kombinasi?")
-    st.markdown("""
+    st.markdown(r"""
     ### 📌 Definisi  
     **Kombinasi** adalah cara memilih sejumlah objek dari sekumpulan objek **tanpa memperhatikan urutan**.
 
@@ -106,7 +108,7 @@ with tab3:
     Kombinasi dari *n* objek yang dipilih *r*:
 
     $$
-    C(n, r) = \\frac{n!}{r!(n - r)!}
+    C(n, r) = \frac{n!}{r!(n - r)!}
     $$
 
     **Keterangan:**
@@ -122,7 +124,7 @@ with tab3:
     Sela ingin membuat kombinasi 3 buah:
 
     $$
-    C(5,3) = \\frac{5!}{3!(5-3)!} = \\frac{120}{6 × 2} = \\frac{120}{12} = 10
+    C(5,3) = \frac{5!}{3!(5-3)!} = \frac{120}{6 × 2} = \frac{120}{12} = 10
     $$
 
     Jadi, ada **10 kombinasi** dari 3 buah tersebut.
@@ -137,12 +139,13 @@ with tab3:
     ---
 
     ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab Simulasi untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
+    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
     """)
 
 # Tab 4 - Simulasi
 with tab4:
     st.subheader("🧃 Simulasi Kombinasi Buah")
+    
     jumlah_buah = st.slider("Pilih jumlah jenis buah yang ingin digunakan (n):", 1, 20, 5)
     st.markdown("### Masukkan nama buah:")
 
@@ -163,9 +166,11 @@ with tab4:
         st.warning("⚠️ Nama buah tidak boleh duplikat.")
     else:
         r = st.slider("Pilih jumlah buah dalam satu kombinasi (r):", 1, len(buah_unik), min(3, len(buah_unik)))
+        
         if st.button("🔄 Generate Kombinasi"):
             kombinasi = list(itertools.combinations(buah_unik, r))
             st.success(f"Terdapat **{len(kombinasi)}** kombinasi yang mungkin:")
+            
             for i, combo in enumerate(kombinasi, 1):
                 combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
                 st.write(f"{i}. " + ", ".join(combo_with_emoji))
