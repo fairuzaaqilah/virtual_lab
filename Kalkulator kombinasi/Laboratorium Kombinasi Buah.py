@@ -99,25 +99,65 @@ with tab2:
     """)
 
 # Tab Pengantar Materi
+
+    # Tab Pengantar Materi
 with tab3:
     st.subheader("🎓 Apa Itu Kombinasi?")
-    
+
     st.markdown("""
     ### 📌 Definisi  
     **Kombinasi** adalah cara memilih sejumlah objek dari sekumpulan objek **tanpa memperhatikan urutan**.
-    
+
     **Contohnya:**  
-    Jika kamu punya 3 buah: Apel, Jeruk, dan Mangga — dan kamu ingin memilih 2 buah, maka kombinasi yang mungkin adalah:
+    Jika kamu punya 3 buah: 🍎 Apel, 🍊 Jeruk, dan 🥭 Mangga — dan kamu ingin memilih 2 buah, maka kombinasi yang mungkin adalah:
     - Apel & Jeruk  
     - Apel & Mangga  
     - Jeruk & Mangga
 
-    ---  
+    Pada kombinasi, *Apel & Jeruk* dianggap sama dengan *Jeruk & Apel* karena urutan tidak penting.
+
+    ---
+
+    ### 🔢 Rumus Kombinasi
+    Kombinasi dari *n* objek yang dipilih *r* disebut sebagai **C(n, r)** dan dirumuskan sebagai:
+
+    $$
+    C(n, r) = \\frac{n!}{r! (n - r)!}
+    $$
+
+    **Keterangan:**
+    - *n* = jumlah total objek (misalnya jenis buah)
+    - *r* = jumlah objek yang dipilih
+    - *!* = faktorial, yaitu hasil perkalian dari bilangan tersebut dengan semua bilangan positif di bawahnya  
+      (contoh: 4! = 4 × 3 × 2 × 1 = 24)
+
+    ---
+
+    ### 🧮 Contoh Perhitungan Kombinasi
+
+    Misalnya kamu memiliki 5 jenis buah berikut:  
+    🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi
+
+    Kamu ingin membuat kombinasi 3 buah untuk jus. Maka perhitungannya:
+
+    $$
+    C(5,3) = \\frac{5!}{3!(5-3)!} = \\frac{120}{6 × 2} = \\frac{120}{12} = 10
+    $$
+
+    Jadi, terdapat **10 kombinasi unik** dari 3 buah yang bisa kamu buat dari 5 jenis buah.
+
+    ---
+
     ### 🧃 Penerapan dalam Kehidupan Sehari-hari
     - Membuat campuran jus dari beberapa jenis buah  
     - Menyusun menu makanan dari berbagai pilihan  
     - Memilih tim dari sekelompok siswa
 
+    ---
+
+    ### 🌡️ Siap Bereksperimen?  
+    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
+    """)
     ---  
     ### 🌡️ Siap Bereksperimen?  
     Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
