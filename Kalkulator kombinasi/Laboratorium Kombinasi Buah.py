@@ -45,7 +45,9 @@ emoji_buah = {
 
 # Judul utama
 st.title("🍹 Laboratorium Kombinasi Buah")
-st.markdown("Selamat datang! Mari bereksperimen membuat kombinasi buah favoritmu untuk jus 🧃")
+st.markdown("Selamat datang di laboratorium kombinasi buah!  
+Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
+")
 
 # Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
