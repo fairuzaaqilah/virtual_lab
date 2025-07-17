@@ -67,7 +67,7 @@ with tab1:
     5. Klik Generate Kombinasi untuk melihat hasilnya.
     
     ### ⚠️ Catatan:
-    - Nama buah harus unik dan tidak boleh kosong.
+    - Nama buah tidak boleh kosong dan tidak boleh duplikat.
     """)
 
 # Tab 2 - Tujuan
@@ -135,7 +135,7 @@ with tab3:
     ---
 
     ### 🌡️ Siap Bereksperimen?  
-    Ayo lanjut ke tab **Simulasi**!
+    Silakan lanjut ke tab Simulasi untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
     """)
 
 # Tab 4 - Simulasi
