@@ -116,14 +116,14 @@ with tab3:
 
     ### 🧮 Contoh Perhitungan
 
-    Misal ada 5 buah: 🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi  
-    Ingin membuat kombinasi 3 buah:
+    Misal Sela mempunyai 5 buah: 🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi  
+    Sela ingin membuat kombinasi 3 buah:
 
     $$
     C(5,3) = \\frac{5!}{3!(5-3)!} = \\frac{120}{6 × 2} = \\frac{120}{12} = 10
     $$
 
-    Jadi, ada **10 kombinasi unik** dari 3 buah tersebut.
+    Jadi, ada **10 kombinasi** dari 3 buah tersebut.
 
     ---
 
