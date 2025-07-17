@@ -78,14 +78,42 @@ with tab3:
     - Apel & Jeruk  
     - Apel & Mangga  
     - Jeruk & Mangga
-    
-    ---  
+    """)
+
+    st.markdown("""
+    ---
+    ### 🧮 Rumus Kombinasi
+
+    Jika kamu ingin memilih `r` buah dari `n` buah yang tersedia, dan urutan **tidak penting**, maka jumlah kombinasi dapat dihitung dengan rumus berikut:
+
+    \[
+    C(n, r) = \\frac{n!}{r!(n - r)!}
+    \]
+
+    **Keterangan:**
+    - `n` = jumlah total buah  
+    - `r` = jumlah buah yang dipilih  
+    - `!` = simbol faktorial, artinya perkalian berurutan dari 1 sampai bilangan tersebut (contoh: 3! = 3×2×1 = 6)
+
+    ---
+    ### 📘 Contoh Perhitungan
+
+    Misalnya kamu punya 5 buah dan ingin memilih 2:
+    \[
+    C(5, 2) = \\frac{5!}{2!(5 - 2)!} = \\frac{5×4×3×2×1}{2×1 × 3×2×1} = \\frac{120}{2×6} = 10
+    \]
+
+    Jadi, ada **10 kombinasi** yang bisa dibuat.
+    """)
+
+    st.markdown("""
+    ---
     ### 🧃 Penerapan dalam Kehidupan Sehari-hari
     - Membuat campuran jus dari beberapa jenis buah  
     - Menyusun menu makanan dari berbagai pilihan  
     - Memilih tim dari sekelompok siswa
 
-    ---  
+    ---
     ### 🌡️ Siap Bereksperimen?  
     Silakan lanjut ke tab Simulasi untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
     """)
