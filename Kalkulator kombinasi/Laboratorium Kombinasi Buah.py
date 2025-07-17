@@ -80,30 +80,39 @@ with tab3:
     - Jeruk & Mangga
     """)
 
-    st.markdown("""
+        st.markdown("""
     ---
     ### 🧮 Rumus Kombinasi
 
-    Jika kamu ingin memilih `r` buah dari `n` buah yang tersedia, dan urutan **tidak penting**, maka jumlah kombinasi dapat dihitung dengan rumus berikut:
+    Kombinasi digunakan saat kita ingin **memilih beberapa objek dari sekumpulan objek** tanpa memperhatikan urutan.
+
+    Rumus kombinasi dinyatakan sebagai:
 
     \[
     C(n, r) = \\frac{n!}{r!(n - r)!}
     \]
 
     **Keterangan:**
-    - `n` = jumlah total buah  
-    - `r` = jumlah buah yang dipilih  
-    - `!` = simbol faktorial, artinya perkalian berurutan dari 1 sampai bilangan tersebut (contoh: 3! = 3×2×1 = 6)
+    - `n` = jumlah total objek (misalnya jenis buah)
+    - `r` = jumlah objek yang dipilih
+    - `!` = faktorial, yaitu hasil perkalian dari bilangan tersebut dengan semua bilangan positif di bawahnya  
+      (contoh: \\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\))
 
     ---
-    ### 📘 Contoh Perhitungan
+    ### 📘 Contoh Perhitungan Kombinasi
 
-    Misalnya kamu punya 5 buah dan ingin memilih 2:
+    Misalnya kamu memiliki **5 jenis buah**:  
+    🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi  
+
+    Lalu kamu ingin membuat kombinasi **3 buah untuk jus**.
+
+    Maka:
+
     \[
-    C(5, 2) = \\frac{5!}{2!(5 - 2)!} = \\frac{5×4×3×2×1}{2×1 × 3×2×1} = \\frac{120}{2×6} = 10
+    C(5, 3) = \\frac{5!}{3!(5 - 3)!} = \\frac{5 \\times 4 \\times 3 \\times 2 \\times 1}{3 \\times 2 \\times 1 \\times 2 \\times 1} = \\frac{120}{6 \\times 2} = \\frac{120}{12} = 10
     \]
 
-    Jadi, ada **10 kombinasi** yang bisa dibuat.
+    Jadi, terdapat **10 kombinasi unik** dari 3 buah yang bisa kamu buat dari 5 jenis buah.
     """)
 
     st.markdown("""
