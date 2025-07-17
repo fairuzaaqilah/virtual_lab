@@ -64,7 +64,7 @@ with tab1:
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
     1. Buka tab **Tujuan Pembelajaran** untuk memahami apa yang akan dipelajari.
-    2. Lanjut ke tab **Pengantar Materi** untuk memahami konsep kombinasi.
+    2. Lanjut ke tab **Pengantar Materi** untuk memahami materi dasar kombinasi.
     3. Klik tab **Simulasi** untuk bereksperimen.
     4. Pilih jumlah buah (`n`) dan jumlah buah yang dicampur (`r`).
     5. Klik **Generate Kombinasi** untuk melihat hasilnya.
