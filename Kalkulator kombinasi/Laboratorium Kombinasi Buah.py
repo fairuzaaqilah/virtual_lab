@@ -78,7 +78,7 @@ with tab1:
 with tab2:
     st.subheader("🎯 Tujuan Pembelajaran")
     st.markdown("""
-    Setelah mengikuti kegiatan ini, kamu diharapkan dapat:
+    Setelah mengikuti pembelajaran ini, siswa diharapkan dapat:
     - Menjelaskan pengertian kombinasi dan bahwa urutan tidak berpengaruh.
     - Menuliskan kemungkinan kombinasi dari beberapa benda tanpa rumus.
     - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
