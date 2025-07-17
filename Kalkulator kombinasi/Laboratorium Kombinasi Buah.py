@@ -1,6 +1,5 @@
 import streamlit as st
 import itertools
-import math
 
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
@@ -30,10 +29,9 @@ Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
 """)
 
 # Tabs
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3 = st.tabs([
     "📖 Panduan", 
     "🎯 Tujuan Pembelajaran", 
-    "🎓 Pengantar Materi", 
     "🧃 Simulasi"
 ])
 
@@ -43,10 +41,9 @@ with tab1:
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
     1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
-    2. Lanjut ke tab Pengantar Materi untuk memahami konsep kombinasi.
-    3. Klik tab Simulasi untuk bereksperimen.
-    4. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
-    5. Klik Generate Kombinasi untuk melihat hasilnya.
+    2. Klik tab Simulasi untuk bereksperimen.
+    3. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
+    4. Klik Generate Kombinasi untuk melihat hasilnya.
 
     ### ⚠️ Catatan:
     - Nama buah tidak boleh kosong dan tidak boleh duplikat.
@@ -65,72 +62,8 @@ with tab2:
     - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi.
     """)
 
-# Tab Pengantar Materi
-with tab3:
-    st.subheader("🎓 Apa Itu Kombinasi?")
-    
-    st.markdown("""
-    ### 📌 Definisi  
-    Kombinasi adalah cara memilih sejumlah objek dari sekumpulan objek tanpa memperhatikan urutan.
-
-    Contohnya:  
-    Jika kamu punya 3 buah: Apel, Jeruk, dan Mangga — dan kamu ingin memilih 2 buah, maka kombinasi yang mungkin adalah:
-    - Apel & Jeruk  
-    - Apel & Mangga  
-    - Jeruk & Mangga
-    """)
-
-    st.markdown("""
-    ---
-    ### 🧮 Rumus Kombinasi
-
-    Kombinasi digunakan saat kita ingin **memilih beberapa objek dari sekumpulan objek** tanpa memperhatikan urutan.
-
-    Rumus kombinasi dinyatakan sebagai:
-
-    \[
-    C(n, r) = \\frac{n!}{r!(n - r)!}
-    \]
-
-    **Keterangan:**
-    - `n` = jumlah total objek (misalnya jenis buah)
-    - `r` = jumlah objek yang dipilih
-    - `!` = faktorial, yaitu hasil perkalian dari bilangan tersebut dengan semua bilangan positif di bawahnya  
-      (contoh: \\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\))
-    """)
-
-    st.markdown("""
-    ---
-    ### 📘 Contoh Perhitungan Kombinasi
-
-    Misalnya kamu memiliki **5 jenis buah**:  
-    🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi  
-
-    Lalu kamu ingin membuat kombinasi **3 buah untuk jus**.
-
-    Maka:
-
-    \[
-    C(5, 3) = \\frac{5!}{3!(5 - 3)!} = \\frac{5 \\times 4 \\times 3 \\times 2 \\times 1}{3 \\times 2 \\times 1 \\times 2 \\times 1} = \\frac{120}{6 \\times 2} = \\frac{120}{12} = 10
-    \]
-
-    Jadi, terdapat **10 kombinasi unik** dari 3 buah yang bisa kamu buat dari 5 jenis buah.
-    """)
-
-    st.markdown("""
-    ---
-    ### 🧃 Penerapan dalam Kehidupan Sehari-hari
-    - Membuat campuran jus dari beberapa jenis buah  
-    - Menyusun menu makanan dari berbagai pilihan  
-    - Memilih tim dari sekelompok siswa
-
-    ---
-    ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab Simulasi untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
-    """)
-
 # Tab Simulasi
-with tab4:
+with tab3:
     st.subheader("🧃 Simulasi Kombinasi Buah")
 
     jumlah_buah = st.slider(
