@@ -42,8 +42,7 @@ with tab1:
     ### 🛠️ Cara Menggunakan:
     1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
     2. Klik tab Simulasi untuk bereksperimen.
-    3. Pilih jumlah buah (n) yang tersedia dan masukkan nama buah tersebut.
-    4. Pilih berapa banyak macam buah yang ingin dicampur (r).
+    3. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
     4. Klik Generate Kombinasi untuk melihat hasilnya.
 
     ### ⚠️ Catatan:
