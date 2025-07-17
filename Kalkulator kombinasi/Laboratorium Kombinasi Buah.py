@@ -1,6 +1,5 @@
 import streamlit as st
 import itertools
-import math
 
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
@@ -44,11 +43,10 @@ with tab1:
     1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
     2. Klik tab Simulasi untuk bereksperimen.
     3. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
-    4. Klik *Generate Kombinasi* untuk melihat hasilnya.
+    4. Klik Generate Kombinasi untuk melihat hasilnya.
 
     ### ⚠️ Catatan:
     - Nama buah tidak boleh kosong dan tidak boleh duplikat.
-    - Nilai r tidak boleh lebih besar dari jumlah buah (n).
     """)
 
 # Tab Tujuan Pembelajaran
@@ -82,7 +80,7 @@ with tab3:
         buah = st.text_input(f"Buah ke-{i+1}:", key=f"buah_{i}")
         buah_list.append(buah.strip())
 
-    # Validasi input buah
+    # Validasi input
     buah_unik = []
     for b in buah_list:
         if b != "" and b.lower() not in [x.lower() for x in buah_unik]:
@@ -92,24 +90,18 @@ with tab3:
         st.warning("⚠️ Nama buah tidak boleh kosong.")
     elif len(buah_unik) < len(buah_list):
         st.warning("⚠️ Nama buah tidak boleh duplikat.")
-    elif len(buah_unik) == 0:
-        st.warning("⚠️ Masukkan minimal satu buah.")
     else:
-        max_r = len(buah_unik)
         r = st.slider(
             "Pilih berapa buah yang ingin dicampur dalam satu kombinasi (r):",
             min_value=1,
-            max_value=max_r,
-            value=min(3, max_r)
+            max_value=len(buah_unik),
+            value=min(3, len(buah_unik))
         )
 
-        if r > max_r:
-            st.error("❌ Nilai r tidak boleh lebih besar dari jumlah buah yang tersedia (n).")
-        else:
-            if st.button("🔄 Generate Kombinasi"):
-                kombinasi = list(itertools.combinations(buah_unik, r))
-                st.success(f"Terdapat {len(kombinasi)} kombinasi yang mungkin:")
+        if st.button("🔄 Generate Kombinasi"):
+            kombinasi = list(itertools.combinations(buah_unik, r))
+            st.success(f"Terdapat {len(kombinasi)} kombinasi yang mungkin:")
 
-                for i, combo in enumerate(kombinasi, 1):
-                    combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
-                    st.write(f"{i}. " + ", ".join(combo_with_emoji)
+            for i, combo in enumerate(kombinasi, 1):
+                combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
+                st.write(f"{i}. " + ", ".join(combo_with_emoji))
