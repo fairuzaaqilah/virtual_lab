@@ -1,42 +1,8 @@
 import streamlit as st
 import itertools
+import math
 
-# Konfigurasi halaman
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
-
-# ===== CSS Background Polos Lembut untuk Semua Area =====
-st.markdown("""
-    <style>
-    /* Latar belakang seluruh aplikasi */
-    .stApp {
-        background-color: #f0f8ff;
-    }
-
-    /* Kontainer utama (konten tengah) */
-    .block-container {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 2rem 3rem;
-        border-radius: 12px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    /* Sidebar */
-    [data-testid="stSidebar"] {
-        background-color: #e6f2ff;
-    }
-
-    /* Tab background (bagian atas tab) */
-    div[data-testid="stTabs"] > div {
-        background-color: #e9f4ff;
-        border-radius: 8px;
-        padding: 5px;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: #2f2f2f;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 # Emoji mapping
 emoji_buah = {
@@ -76,26 +42,27 @@ with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
-    1. Buka tab **Tujuan Pembelajaran** untuk memahami apa yang akan dipelajari.
-    2. Lanjut ke tab **Pengantar Materi** untuk memahami konsep kombinasi.
-    3. Buka tab **Simulasi** untuk mencoba sendiri.
-    4. Pilih jumlah buah (**n**) dan berapa banyak buah dicampur (**r**).
-    5. Klik **Generate Kombinasi** untuk melihat hasilnya.
+    1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
+    2. Lanjut ke tab Pengantar Materi untuk memahami konsep kombinasi.
+    3. Klik tab Simulasi untuk bereksperimen.
+    4. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
+    5. Klik Generate Kombinasi untuk melihat hasilnya.
 
     ### ⚠️ Catatan:
-    - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**.
+    - Nama buah tidak boleh kosong dan tidak boleh duplikat.
     """)
 
 # Tab Tujuan Pembelajaran
 with tab2:
     st.subheader("🎯 Tujuan Pembelajaran")
     st.markdown("""
-    Setelah menyelesaikan pembelajaran ini, siswa diharapkan dapat memahami:
-    
-    - Konsep kombinasi dalam matematika
-    - Perbedaan kombinasi dan permutasi
-    - Cara menghitung banyaknya kombinasi
-    - Penerapan kombinasi dalam kehidupan sehari-hari
+    Setelah menyelesaikan pembelajaran ini, siswa diharapkan dapat:
+
+    - Menjelaskan pengertian kombinasi dan bahwa urutan tidak berpengaruh.
+    - Menuliskan kemungkinan kombinasi dari beberapa benda tanpa rumus.
+    - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
+    - Menyelesaikan soal kombinasi dengan rumus yang sesuai.
+    - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi.
     """)
 
 # Tab Pengantar Materi
@@ -104,14 +71,14 @@ with tab3:
     
     st.markdown("""
     ### 📌 Definisi  
-    **Kombinasi** adalah cara memilih sejumlah objek dari sekumpulan objek **tanpa memperhatikan urutan**.
+    Kombinasi adalah cara memilih sejumlah objek dari sekumpulan objek tanpa memperhatikan urutan.
     
-    **Contohnya:**  
+    Contohnya:  
     Jika kamu punya 3 buah: Apel, Jeruk, dan Mangga — dan kamu ingin memilih 2 buah, maka kombinasi yang mungkin adalah:
     - Apel & Jeruk  
     - Apel & Mangga  
     - Jeruk & Mangga
-
+    
     ---  
     ### 🧃 Penerapan dalam Kehidupan Sehari-hari
     - Membuat campuran jus dari beberapa jenis buah  
@@ -120,7 +87,7 @@ with tab3:
 
     ---  
     ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
+    Silakan lanjut ke tab Simulasi untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
     """)
 
 # Tab Simulasi
@@ -161,7 +128,7 @@ with tab4:
 
         if st.button("🔄 Generate Kombinasi"):
             kombinasi = list(itertools.combinations(buah_unik, r))
-            st.success(f"Terdapat **{len(kombinasi)}** kombinasi yang mungkin:")
+            st.success(f"Terdapat {len(kombinasi)} kombinasi yang mungkin:")
 
             for i, combo in enumerate(kombinasi, 1):
                 combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
