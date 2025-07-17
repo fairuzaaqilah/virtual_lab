@@ -60,9 +60,11 @@ with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
-    1. Buka tab **Tujuan Pembelajaran**.
-    2. Baca tab **Pengantar Materi** untuk memahami konsep kombinasi.
-    3. Jalankan **Simulasi** untuk membuat kombinasi buah.
+    1. Buka tab Tujuan Pembelajaran untuk memahami apa yang akan dipelajari.
+    2. Lanjut ke tab Pengantar Materi untuk memahami konsep kombinasi.
+    3. Klik tab Simulasi untuk bereksperimen.
+    4. Pilih jumlah buah (n) dan berapa banyak buah dicampur (r).
+    5. Klik Generate Kombinasi untuk melihat hasilnya.
     
     ### ⚠️ Catatan:
     - Nama buah harus unik dan tidak boleh kosong.
@@ -73,10 +75,11 @@ with tab2:
     st.subheader("🎯 Tujuan Pembelajaran")
     st.markdown("""
     Setelah mengikuti kegiatan ini, kamu diharapkan dapat:
-    - Menjelaskan konsep kombinasi
-    - Menghitung kombinasi menggunakan rumus
-    - Membedakan kombinasi dan permutasi
-    - Mengaitkan kombinasi dengan aktivitas sehari-hari
+    - Menjelaskan pengertian kombinasi dan bahwa urutan tidak berpengaruh.
+    - Menuliskan kemungkinan kombinasi dari beberapa benda tanpa rumus.
+    - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
+    - Menyelesaikan soal kombinasi dengan rumus yang sesuai.
+    - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi
     """)
 
 # Tab 3 - Pengantar Materi
@@ -92,7 +95,7 @@ with tab3:
     - Apel & Mangga  
     - Jeruk & Mangga  
 
-    *Catatan: Apel & Jeruk = Jeruk & Apel → karena urutan tidak penting.*
+    *Catatan: Apel & Jeruk = Jeruk & Apel → karena urutan tidak berpengaruh.*
 
     ---
 
@@ -125,9 +128,9 @@ with tab3:
     ---
 
     ### 🧃 Penerapan Kombinasi:
-    - Campuran jus
-    - Menu makanan
-    - Pemilihan tim dari siswa
+    - Membuat campuran jus dari beberapa jenis buah  
+    - Menyusun menu makanan dari berbagai pilihan  
+    - Memilih tim dari sekelompok siswa
 
     ---
 
