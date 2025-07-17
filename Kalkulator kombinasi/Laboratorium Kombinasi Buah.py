@@ -4,41 +4,29 @@ import itertools
 # Konfigurasi halaman
 st.set_page_config(page_title="Laboratorium Kombinasi Buah", layout="centered")
 
-# ===== CSS Background Polos Lembut untuk Semua Area =====
+# ===== CSS Background Polos =====
 st.markdown("""
     <style>
-    /* Latar belakang seluruh aplikasi */
-    .stApp {
-        background-color: #f0f8ff;
-    }
-
-    /* Kontainer utama (konten tengah) */
+    .stApp { background-color: #f0f8ff; }
     .block-container {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 2rem 3rem;
         border-radius: 12px;
         box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
-    /* Sidebar */
     [data-testid="stSidebar"] {
         background-color: #e6f2ff;
     }
-
-    /* Tab background (bagian atas tab) */
     div[data-testid="stTabs"] > div {
         background-color: #e9f4ff;
         border-radius: 8px;
         padding: 5px;
     }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: #2f2f2f;
-    }
+    h1, h2, h3, h4, h5, h6 { color: #2f2f2f; }
     </style>
 """, unsafe_allow_html=True)
 
-# Emoji mapping
+# Emoji buah
 emoji_buah = {
     "apel": "🍎",
     "jeruk": "🍊",
@@ -55,125 +43,102 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-# Judul halaman
+# Judul utama
 st.title("🍹 Laboratorium Kombinasi Buah")
-
-st.markdown("""
-Selamat datang di laboratorium kombinasi buah!  
-Di sini kamu bisa bereksperimen membuat kombinasi buah untuk jus favoritmu 🧃
-""")
+st.markdown("Selamat datang! Mari bereksperimen membuat kombinasi buah favoritmu untuk jus 🧃")
 
 # Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📖 Panduan", 
-    "🎯 Tujuan Pembelajaran", 
-    "🎓 Pengantar Materi", 
+    "📖 Panduan",
+    "🎯 Tujuan Pembelajaran",
+    "🎓 Pengantar Materi",
     "🧃 Simulasi"
 ])
 
-# Tab Panduan
+# Tab 1 - Panduan
 with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
-    1. Buka tab **Tujuan Pembelajaran** untuk memahami apa yang akan dipelajari.
-    2. Lanjut ke tab **Pengantar Materi** untuk memahami konsep kombinasi.
-    3. Buka tab **Simulasi** untuk mencoba sendiri.
-    4. Pilih jumlah buah (**n**) dan berapa banyak buah dicampur (**r**).
-    5. Klik **Generate Kombinasi** untuk melihat hasilnya.
-
+    1. Buka tab **Tujuan Pembelajaran**.
+    2. Baca tab **Pengantar Materi** untuk memahami konsep kombinasi.
+    3. Jalankan **Simulasi** untuk membuat kombinasi buah.
+    
     ### ⚠️ Catatan:
-    - Nama buah tidak boleh **kosong** dan **tidak boleh duplikat**.
+    - Nama buah harus unik dan tidak boleh kosong.
     """)
 
-# Tab Tujuan Pembelajaran
+# Tab 2 - Tujuan
 with tab2:
     st.subheader("🎯 Tujuan Pembelajaran")
     st.markdown("""
-    Setelah menyelesaikan pembelajaran ini, siswa diharapkan dapat memahami:
-    
-    - Konsep kombinasi dalam matematika
-    - Perbedaan kombinasi dan permutasi
-    - Cara menghitung banyaknya kombinasi
-    - Penerapan kombinasi dalam kehidupan sehari-hari
+    Setelah mengikuti kegiatan ini, kamu diharapkan dapat:
+    - Menjelaskan konsep kombinasi
+    - Menghitung kombinasi menggunakan rumus
+    - Membedakan kombinasi dan permutasi
+    - Mengaitkan kombinasi dengan aktivitas sehari-hari
     """)
 
-# Tab Pengantar Materi
-
-    # Tab Pengantar Materi
+# Tab 3 - Pengantar Materi
 with tab3:
     st.subheader("🎓 Apa Itu Kombinasi?")
-
     st.markdown("""
     ### 📌 Definisi  
     **Kombinasi** adalah cara memilih sejumlah objek dari sekumpulan objek **tanpa memperhatikan urutan**.
 
-    **Contohnya:**  
-    Jika kamu punya 3 buah: 🍎 Apel, 🍊 Jeruk, dan 🥭 Mangga — dan kamu ingin memilih 2 buah, maka kombinasi yang mungkin adalah:
+    **Contoh:**  
+    Jika kamu punya 3 buah: 🍎 Apel, 🍊 Jeruk, dan 🥭 Mangga, dan memilih 2 buah:
     - Apel & Jeruk  
     - Apel & Mangga  
-    - Jeruk & Mangga
+    - Jeruk & Mangga  
 
-    Pada kombinasi, *Apel & Jeruk* dianggap sama dengan *Jeruk & Apel* karena urutan tidak penting.
+    *Catatan: Apel & Jeruk = Jeruk & Apel → karena urutan tidak penting.*
 
     ---
 
     ### 🔢 Rumus Kombinasi
-    Kombinasi dari *n* objek yang dipilih *r* disebut sebagai **C(n, r)** dan dirumuskan sebagai:
+
+    Kombinasi dari *n* objek yang dipilih *r*:
 
     $$
-    C(n, r) = \\frac{n!}{r! (n - r)!}
+    C(n, r) = \\frac{n!}{r!(n - r)!}
     $$
 
     **Keterangan:**
-    - *n* = jumlah total objek (misalnya jenis buah)
-    - *r* = jumlah objek yang dipilih
-    - *!* = faktorial, yaitu hasil perkalian dari bilangan tersebut dengan semua bilangan positif di bawahnya  
-      (contoh: 4! = 4 × 3 × 2 × 1 = 24)
+    - *n* = total objek
+    - *r* = objek yang dipilih
+    - *!* = faktorial (contoh: 4! = 4 × 3 × 2 × 1 = 24)
 
     ---
 
-    ### 🧮 Contoh Perhitungan Kombinasi
+    ### 🧮 Contoh Perhitungan
 
-    Misalnya kamu memiliki 5 jenis buah berikut:  
-    🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi
-
-    Kamu ingin membuat kombinasi 3 buah untuk jus. Maka perhitungannya:
+    Misal ada 5 buah: 🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi  
+    Ingin membuat kombinasi 3 buah:
 
     $$
     C(5,3) = \\frac{5!}{3!(5-3)!} = \\frac{120}{6 × 2} = \\frac{120}{12} = 10
     $$
 
-    Jadi, terdapat **10 kombinasi unik** dari 3 buah yang bisa kamu buat dari 5 jenis buah.
+    Jadi, ada **10 kombinasi unik** dari 3 buah tersebut.
 
     ---
 
-    ### 🧃 Penerapan dalam Kehidupan Sehari-hari
-    - Membuat campuran jus dari beberapa jenis buah  
-    - Menyusun menu makanan dari berbagai pilihan  
-    - Memilih tim dari sekelompok siswa
+    ### 🧃 Penerapan Kombinasi:
+    - Campuran jus
+    - Menu makanan
+    - Pemilihan tim dari siswa
 
     ---
 
     ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
-    """)
-    ---  
-    ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Virtual 🍹
+    Ayo lanjut ke tab **Simulasi**!
     """)
 
-# Tab Simulasi
+# Tab 4 - Simulasi
 with tab4:
     st.subheader("🧃 Simulasi Kombinasi Buah")
-
-    jumlah_buah = st.slider(
-        "Pilih jumlah jenis buah yang ingin digunakan (n):",
-        min_value=1,
-        max_value=20,
-        value=5
-    )
-
+    jumlah_buah = st.slider("Pilih jumlah jenis buah yang ingin digunakan (n):", 1, 20, 5)
     st.markdown("### Masukkan nama buah:")
 
     buah_list = []
@@ -181,7 +146,7 @@ with tab4:
         buah = st.text_input(f"Buah ke-{i+1}:", key=f"buah_{i}")
         buah_list.append(buah.strip())
 
-    # Validasi input
+    # Validasi buah
     buah_unik = []
     for b in buah_list:
         if b != "" and b.lower() not in [x.lower() for x in buah_unik]:
@@ -192,17 +157,10 @@ with tab4:
     elif len(buah_unik) < len(buah_list):
         st.warning("⚠️ Nama buah tidak boleh duplikat.")
     else:
-        r = st.slider(
-            "Pilih berapa buah yang ingin dicampur dalam satu kombinasi (r):",
-            min_value=1,
-            max_value=len(buah_unik),
-            value=min(3, len(buah_unik))
-        )
-
+        r = st.slider("Pilih jumlah buah dalam satu kombinasi (r):", 1, len(buah_unik), min(3, len(buah_unik)))
         if st.button("🔄 Generate Kombinasi"):
             kombinasi = list(itertools.combinations(buah_unik, r))
             st.success(f"Terdapat **{len(kombinasi)}** kombinasi yang mungkin:")
-
             for i, combo in enumerate(kombinasi, 1):
                 combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
                 st.write(f"{i}. " + ", ".join(combo_with_emoji))
