@@ -63,10 +63,10 @@ with tab1:
     st.subheader("📖 Panduan Laboratorium Virtual Kombinasi Buah")
     st.markdown("""
     ### 🛠️ Cara Menggunakan:
-    1. Buka tab **Tujuan Pembelajaran** untuk memahami apa yang akan dipelajari.
+    1. Buka tab **Tujuan Pembelajaran** untuk memahami tujuan yang akan dicapai.
     2. Lanjut ke tab **Pengantar Materi** untuk memahami materi dasar kombinasi.
     3. Klik tab **Simulasi** untuk bereksperimen.
-    4. Pilih jumlah buah (`n`) dan masukkan nama buah yang tersedia.
+    4. Pilih jumlah buah (`n`) dan masukkan nama buah sesuai yang diinginkan.
     5. Pilih jumlah buah yang ingin dicampur (`r`).
     6. Klik **Generate Kombinasi** untuk melihat hasilnya.
 
@@ -80,11 +80,11 @@ with tab2:
     st.subheader("🎯 Tujuan Pembelajaran")
     st.markdown("""
     Setelah mengikuti pembelajaran ini, siswa diharapkan dapat:
-    - Menjelaskan pengertian kombinasi dan bahwa urutan tidak berpengaruh.
+    - Menjelaskan pengertian kombinasi.
     - Menuliskan kemungkinan kombinasi dari beberapa benda tanpa rumus.
-    - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
     - Menyelesaikan soal kombinasi dengan rumus yang sesuai.
-    - Menjelaskan pengaruh jumlah buah dan yang dipilih terhadap banyaknya kombinasi.
+    - Menggunakan virtual lab kombinasi buah untuk mencoba berbagai kombinasi.
+    - Menjelaskan pengaruh jumlah total buah dan jumlah buah yang dipilih terhadap banyaknya kombinasi.
     """)
 
 # Tab 3 - Pengantar Materi
