@@ -95,7 +95,7 @@ with tab3:
     **Kombinasi** adalah cara memilih sejumlah objek dari sekumpulan objek **tanpa memperhatikan urutan**.
 
     **Contoh:**  
-    Jika kamu punya 3 buah: 🍎 Apel, 🍊 Jeruk, dan 🥭 Mangga, dan memilih 2 buah:
+    Jika kamu punya 3 buah: 🍎 Apel, 🍊 Jeruk, dan 🥭 Mangga, dan ingin memilih kombinasi dari 2 buah, maka diperoleh:
     - Apel & Jeruk  
     - Apel & Mangga  
     - Jeruk & Mangga  
