@@ -43,7 +43,7 @@ emoji_buah = {
     "alpukat": "🥑"
 }
 
-# Judul utama (diperkecil)
+# Judul utama
 st.header("🍹 Laboratorium Kombinasi Buah")
 st.markdown("""
 Selamat datang di laboratorium kombinasi buah!  
@@ -101,7 +101,6 @@ with tab3:
     - Jeruk & Mangga  
     Jadi, ada 3 kombinasi yang terbentuk.
 
-
     ---
 
     ### 🔢 Rumus Kombinasi
@@ -146,7 +145,7 @@ with tab3:
 # Tab 4 - Simulasi
 with tab4:
     st.subheader("🧃 Simulasi Kombinasi Buah")
-    
+
     jumlah_buah = st.slider("Pilih jumlah jenis buah yang ingin digunakan (n):", 1, 20, 5)
     st.markdown("### Masukkan nama buah:")
 
@@ -167,11 +166,14 @@ with tab4:
         st.warning("⚠️ Nama buah tidak boleh duplikat.")
     else:
         r = st.slider("Pilih jumlah buah dalam satu kombinasi (r):", 1, len(buah_unik), min(3, len(buah_unik)))
-        
+
         if st.button("🔄 Generate Kombinasi"):
             kombinasi = list(itertools.combinations(buah_unik, r))
             st.success(f"Terdapat **{len(kombinasi)}** kombinasi yang mungkin:")
-            
+
             for i, combo in enumerate(kombinasi, 1):
                 combo_with_emoji = [f"{emoji_buah.get(b.lower(), '')} {b}" for b in combo]
                 st.write(f"{i}. " + ", ".join(combo_with_emoji))
+
+            # Efek salju
+            st.snow()
