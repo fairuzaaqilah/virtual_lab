@@ -107,7 +107,7 @@ with tab3:
 
     ### 🔢 Rumus Kombinasi
 
-    Kombinasi dari *n* objek yang dipilih *r*:
+    kombinasi *r* objek dari *n* objek:
 
     $$
     C(n, r) = \frac{n!}{r!(n - r)!}
