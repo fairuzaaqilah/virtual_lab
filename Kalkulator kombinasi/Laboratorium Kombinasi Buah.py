@@ -139,7 +139,7 @@ with tab3:
     ---
 
     ### 🌡️ Siap Bereksperimen?  
-    Silakan lanjut ke tab **Simulasi** untuk mencoba membuat berbagai kombinasi buah menggunakan Laboratorium Kombinasi Buah🍹
+    Silakan lanjut ke tab **Simulasi** untuk bereksperimen membuat berbagai kombinasi jus buah favoritmu!🍹
     """)
 
 # Tab 4 - Simulasi
