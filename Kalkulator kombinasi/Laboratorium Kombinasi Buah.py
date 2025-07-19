@@ -122,7 +122,7 @@ with tab3:
     ### 🧮 Contoh Perhitungan
 
     Sela mempunyai 5 buah: 🍎 Apel, 🍊 Jeruk, 🥭 Mangga, 🍌 Pisang, 🍓 Stroberi.  
-    Ia ingin membuat kombinasi 3 buah. Berapa kombinasi yang mungkin terbentuk?
+    Ia ingin membuat kombinasi dari 3 buah. Berapa kombinasi yang mungkin terbentuk?
 
     $$
     C(5,3) = \frac{5!}{3!(5-3)!} = \frac{120}{6 × 2} = \frac{120}{12} = 10
