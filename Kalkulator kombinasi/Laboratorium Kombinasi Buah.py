@@ -133,9 +133,9 @@ with tab3:
     ---
 
     ### 🧃 Penerapan Kombinasi:
-    - Membuat campuran jus dari beberapa jenis buah  
-    - Menyusun menu makanan dari berbagai pilihan  
-    - Memilih tim dari sekelompok siswa
+    - Membuat campuran jus dari beberapa jenis buah.  
+    - Menyusun menu makanan dari berbagai pilihan.  
+    - Memilih tim dari sekelompok siswa.
 
     ---
 
