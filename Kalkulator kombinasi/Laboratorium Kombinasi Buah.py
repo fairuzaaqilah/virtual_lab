@@ -101,7 +101,6 @@ with tab3:
     - Jeruk & Mangga  
     Jadi, ada 3 kombinasi yang terbentuk.
 
-    *Catatan: Apel & Jeruk = Jeruk & Apel → karena urutan tidak berpengaruh.*
 
     ---
 
