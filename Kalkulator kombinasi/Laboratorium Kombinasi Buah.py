@@ -107,7 +107,7 @@ with tab3:
 
     ### 🔢 Rumus Kombinasi
 
-    kombinasi *r* objek dari *n* objek:
+    kombinasi **r** objek dari **n** objek:
 
     $$
     C(n, r) = \frac{n!}{r!(n - r)!}
@@ -129,7 +129,7 @@ with tab3:
     C(5,3) = \frac{5!}{3!(5-3)!} = \frac{120}{6 × 2} = \frac{120}{12} = 10
     $$
 
-    Jadi, ada **10 kombinasi** jus dari 3 buah yang mungkin terbentuk.
+    Jadi, ada 10 kombinasi jus dari 3 buah yang mungkin terbentuk.
 
     ---
 
